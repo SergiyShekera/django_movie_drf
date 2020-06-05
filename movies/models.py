@@ -244,7 +244,8 @@ class Review(models.Model):
     movie = models.ForeignKey(
         Movie,
         verbose_name="фильм",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="reviews"
     )
 
     def __str__(self):
