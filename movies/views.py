@@ -2,7 +2,7 @@ from django.db.models import Avg, Count, Sum, Q, F
 
 from django_filters.rest_framework import DjangoFilterBackend
 
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -24,6 +24,8 @@ class MovieListView(generics.ListAPIView):
     serializer_class = MovieListSerializer
     filter_backends = (DjangoFilterBackend, )
     filterset_class = MovieFilter
+
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         movies = Movie.objects.filter(draft=False).annotate(
