@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'djoser',
+    'drf_yasg',
     'django_filters',
 
     'movies',
